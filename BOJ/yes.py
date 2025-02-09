@@ -1,17 +1,22 @@
-x, y = map(int, input().split())
+import sys
 
-triangle = []
-num = 0
-for i in range(x - 1):
-  triangle.append([])
-  for j in range(x - 1 - i):
-    triangle[-1].append(num)
-    num += 1
-    
-result = []
+input = sys.stdin.readline
 
-for i in range(x - 1):
-  for j in range(min(x - i - 1, y - i - 1)):
-    result.append(triangle[i][j])
+n = int(input())
+k = int(input())
 
-print(result)
+def findLessCnt(val):
+  global n
+  result = 0
+  for i in range(1, n + 1):
+    if (val - 1) >= n * i:
+      result += n
+    elif val - 1 >= i:
+      result += (val - 1) // i
+    else:
+      break
+  return result    
+
+arr = [findLessCnt(i) for i in range(1, n*n + 1)]
+
+print(*arr)

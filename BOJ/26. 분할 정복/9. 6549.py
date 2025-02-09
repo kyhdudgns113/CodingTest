@@ -39,7 +39,7 @@
 #   처음에 스택에 넣기까지 : O(n)
 #   스택에서 빼기까지 : O(n)
 #   = O(n) 이다.         
-#       
+# 분할정복의 O(n log n) 보다 빠르다.   
 
 from collections import deque
 import sys
